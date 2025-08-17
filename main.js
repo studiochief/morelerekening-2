@@ -22,13 +22,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function redirectToSpotifyLogin() {
-    const scope = 'user-top-read';
-    
-    // CORRECTED: Added the missing '$' before {clientId}
-    const authUrl = `https://accounts.spotify.com/authorize?client_id=$${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scope)}&show_dialog=true`;
+    // This is the base URL for Spotify's authorization page
+    const spotifyAuthUrl = 'https://accounts.spotify.com/authorize';
 
-    console.log("Redirecting to this URL:", authUrl); 
+    // Use URLSearchParams to safely build the query string
+    const params = new URLSearchParams();
+    params.append('client_id', clientId);
+    params.append('response_type', 'code');
+    params.append('redirect_uri', redirectUri);
+    params.append('scope', 'user-top-read');
+    params.append('show_dialog', 'true');
 
+    // Combine the base URL and the parameters
+    const authUrl = `${spotifyAuthUrl}?${params.toString()}`;
+
+    console.log("Redirecting to this URL:", authUrl);
     window.location.href = authUrl;
 }
 
