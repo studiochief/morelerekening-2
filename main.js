@@ -5,7 +5,7 @@ const clientId = '49623b69703742479c518de9bc51d50f'; // <-- PASTE YOUR CLIENT ID
 const clientSecret = 'be11367aeb5b4b34b2a61465ad64ce15'; // <-- PASTE YOUR CLIENT SECRET
 // ----------------------------------------------------------------------------------
 
-const redirectUri = 'http://googleusercontent.com/studiochief/morelerekening-2'; 
+const redirectUri = 'https://studiochief.github.io/morelerekening-2/'; 
 
 // The "Controversy Database" (shortened for brevity)
 const controversyDatabase = {
