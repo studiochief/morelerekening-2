@@ -23,8 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function redirectToSpotifyLogin() {
     const scope = 'user-top-read';
-    // --- THIS IS THE LINE TO CHANGE ---
     const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scope)}&show_dialog=true`;
+
+    // --- ADD THIS LINE TO DEBUG ---
+    console.log("Redirecting to this URL:", authUrl); 
+
     window.location.href = authUrl;
 }
 
